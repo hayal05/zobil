@@ -879,6 +879,9 @@ def build_application() -> Application:
     )
     application.add_handler(buy_conv)
 
+    # 🚨 FIX: The buy conversation is now placed at the very top so the button works!
+    application.add_handler(buy_conversation)
+
     # --- Remaining simple callback handlers --- #
     application.add_handler(CallbackQueryHandler(browse_category, pattern=r"^menu_cat_"))
     application.add_handler(CallbackQueryHandler(back_categories, pattern=r"^back_categories$"))
@@ -901,6 +904,7 @@ async def main():
     await runner.setup()
     site = web.TCPSite(runner, "0.0.0.0", port)
     await site.start()
+
     
     # 2. YOUR EXISTING TELEGRAM BOT BUILDER (Keep your original code here)
     # application = build_application()
