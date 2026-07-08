@@ -1,2 +1,5 @@
 python-telegram-bot==20.8
 aiohttp
+google-api-python-client>=2.100
+google-auth>=2.23
+google-auth-httplib2>=0.2
